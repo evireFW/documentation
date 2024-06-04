@@ -105,4 +105,4 @@
 * [▪️ GitHub](https://github.com/evireFW)
 * [▪️ Medium](https://evirefw.medium.com)
 * [▪️ Linktree](https://linktr.ee/evireFW)
-* [◾ De Bank](https://debank.com/official/116505)
+* [◾ DeBank](https://debank.com/official/116505)
