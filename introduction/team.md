@@ -1,15 +1,21 @@
 # ▪️ Team
 
-The Evire team comprises skilled professionals united by a shared goal: to innovate the blockchain industry. Our choice to maintain **anonymity** stems from our commitment to fostering an environment where our work speaks for itself.&#x20;
+### The Journey of the Evire Team
 
-We prioritize transparency, innovation and results above seeking recognition. We have collectively chosen to keep our personal details confidential as a reflection of our belief in letting our work speak for itself.&#x20;
+The core team of Evire comprises four passionate blockchain developers who have known each other for many years. Our paths crossed while working on various projects across different domains like AI, gaming, RWA and DePIN. Over time, we have shared experiences, exchanged knowledge and supported each other whenever challenges arose.
 
-By staying anonymous, we aim to direct attention towards the advancements, innovative solutions, and robust systems that we are diligently developing. This approach enables us to uphold standards by steering clear of biases linked to personal recognition and staying true to our mission without external influences. This method cultivates an environment where decisions are based on what's best for the project and community rather than personal motives.&#x20;
+Despite our work in distinct areas, we often encountered the same fundamental issues: a lack of integrated infrastructure and the constant need to reinvent basic components even though many open-source solutions were already available. There was no optimal framework that combined these elements seamlessly, which would allow us to build efficiently without starting from scratch every time.
 
-By keeping our identities private, we enhance our safety and shield our team members from potential risks. This choice also aligns with the principles of the decentralized world we are contributing to, where privacy is considered a basic human right.
+This recurring problem sparked the idea of Evire - a blockchain designed to provide native support for these diverse types of dApps. We envisioned a platform that could cater to specific needs within AI, gaming, RWA and DePIN, offering a robust and unified foundation for developers like us.
 
-Our anonymity promotes a collaborative community atmosphere. We aim to empower our users, developers, and stakeholders to participate in the project based on shared objectives and mutual respect. By shifting the focus from identities, we cultivate an environment where contributions are appreciated for their substance and impact rather than their source.
+In January, we embarked on this journey to bring Evire to life. Along the way, we faced numerous challenges, one of the most significant being funding. Given the long-term nature of development with multiple phases, securing financial support was crucial. Eventually, we devised a funding strategy that we detail [here](finances.md). Another critical decision was whether to make Evire open-source. We carefully weighed the potential advantages and drawbacks and we found a solution that balances openness and project integrity, which we discuss in detail [here](licensing.md).
 
-While we choose to keep our identities private we are committed, to being transparent in all our efforts. We regularly share updates offer documentation and engage with our community across channels. Our goal is to provide information, about our progress building trust among our community in the authenticity and excellence of our work.
+Through perseverance and teamwork, we've overcome obstacles and are now closer than ever to realizing our vision of a revolutionary blockchain platform. The journey has been demanding, but our shared passion for innovation and commitment to solving real-world problems keeps us moving forward.
 
-Keeping our identities confidential does not equate to evading responsibility. We uphold ourselves to high standards of professionalism and are committed to fulfilling our commitments. Our governance system ensures that the community plays a role in shaping the project's direction. We are always receptive to feedback and scrutiny as we value trust and credibility.
+### Why We Are Anonymous
+
+We have collectively decided to remain anonymous to emphasize the impact of our work rather than seeking individual recognition. This decision helps us avoid personal biases and external influences, ensuring that our focus stays firmly on delivering innovative solutions and robust systems for the benefit of the community.&#x20;
+
+By prioritizing transparency in our actions and results, we foster an environment where the merit of our contributions speaks for itself, encouraging a collaborative spirit that values substance over identity.&#x20;
+
+This anonymity also enhances our safety and aligns with the decentralized ethos of privacy and fairness, allowing us to steer clear of risks and uphold the highest standards of professional integrity.
