@@ -30,13 +30,13 @@ The total supply of EVIRE tokens is capped at 800 million tokens, distributed as
 
 The circulating supply of EVIRE tokens excludes certain funds managed by the Evire team:
 
-* **Ecosystem Growth Fund:** Used for ecosystem development, project grants, and bug bounties.
-* **Reserves Fund:** A last-resort fund to address unforeseen issues requiring additional funding.
+* **Ecosystem Growth Fund, u**sed for ecosystem development, project grants, and bug bounties.
+* **Reserves Fund, a** last-resort fund to address unforeseen issues requiring additional funding.
 
 These funds are not included in the circulating supply to prevent staking for passive income or influencing governance. They also ensure the network's bonding rate remains unaffected. Any use of these tokens by Evire must be moved to an intermediate account and accounted for in the network's circulating supply. On Ethereum, these funds are controlled by two multisig addresses:
 
-1. 0x...
-2. 0x...
+1.
+2.
 
 ### Block Rewards
 
