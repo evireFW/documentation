@@ -16,8 +16,8 @@
 ## Core Concepts
 
 * [▪️ Blockchain Basics](core-concepts/blockchain-basics.md)
-* [▪️ Smart Contracts and Decentralized Applications](core-concepts/smart-contracts-and-decentralized-applications.md)
 * [▪️ Ethereum Virtual Machine (EVM)](core-concepts/ethereum-virtual-machine-evm.md)
+* [▪️ Smart Contracts and Decentralized Applications](core-concepts/smart-contracts-and-decentralized-applications.md)
 
 ## FRAMEWORKS AND NATIVE FUNCTIONS
 
