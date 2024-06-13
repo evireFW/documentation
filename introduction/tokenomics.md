@@ -21,10 +21,10 @@ The total supply of EVIRE tokens is capped at 800 million tokens, distributed as
 * **Development Fund (10%):** 80 million tokens will be used for ongoing development and future upgrades of the Evire blockchain, distributed linearly over one year.
 * **Ecosystem Growth (5%):** 40 million tokens allocated for project grants, bug bounties, and to attract stakeholders, also distributed linearly over one year.
 * **Community and Marketing (10%):** 80 million tokens dedicated to community initiatives and marketing efforts, vested over one year.
-* **Block Rewards (25%):** 200 million tokens will be minted as block rewards for validators and delegators, with a six-month cliff followed by a two-year linear release.
+* **Validators Incentives (25%):** 200 million tokens will be minted as incentives for validators and delegators, with a six-month cliff followed by a four-year linear release.
 * **Reserves (5%):** 40 million tokens reserved for emergency situations, distributed linearly over one year.
 
-<table><thead><tr><th width="187">Allocation</th><th width="67" align="center">%</th><th width="137" align="right">Supply</th><th width="78" align="center">TGE</th><th width="161">Vesting</th></tr></thead><tbody><tr><td>Fair launch</td><td align="center">45%</td><td align="right">360,000,000</td><td align="center">100%</td><td>No</td></tr><tr><td>Ecosystem Growth</td><td align="center">5%</td><td align="right">40,000,000</td><td align="center">0%</td><td>Linear for 1 year</td></tr><tr><td>Development Fund             </td><td align="center">10%</td><td align="right">80,000,000</td><td align="center">0%</td><td>Linear for 1 year</td></tr><tr><td>Community and Marketing</td><td align="center">10%</td><td align="right">80,000,000</td><td align="center">0%</td><td>Linear for 1 year</td></tr><tr><td>Block Rewards                         </td><td align="center">25%</td><td align="right">200,000,000</td><td align="center">0%</td><td>Cliff 6 months, then linear for 2 years</td></tr><tr><td>Foundation Reserves</td><td align="center">5%</td><td align="right">40,000,000</td><td align="center">0%</td><td>Linear for 1 year</td></tr></tbody></table>
+<table><thead><tr><th width="187">Allocation</th><th width="67" align="center">%</th><th width="137" align="right">Supply</th><th width="78" align="center">TGE</th><th width="161">Vesting</th></tr></thead><tbody><tr><td>Fair launch</td><td align="center">45%</td><td align="right">360,000,000</td><td align="center">100%</td><td>No</td></tr><tr><td>Ecosystem Growth</td><td align="center">5%</td><td align="right">40,000,000</td><td align="center">0%</td><td>Linear for 1 year</td></tr><tr><td>Development Fund             </td><td align="center">10%</td><td align="right">80,000,000</td><td align="center">0%</td><td>Linear for 1 year</td></tr><tr><td>Community and Marketing</td><td align="center">10%</td><td align="right">80,000,000</td><td align="center">0%</td><td>Linear for 1 year</td></tr><tr><td>Validators Incentives                         </td><td align="center">25%</td><td align="right">200,000,000</td><td align="center">0%</td><td>Cliff 6 months, then linear for 4 years</td></tr><tr><td>Foundation Reserves</td><td align="center">5%</td><td align="right">40,000,000</td><td align="center">0%</td><td>Linear for 1 year</td></tr></tbody></table>
 
 ### Circulating Supply and Controlled Funds
 
@@ -38,6 +38,11 @@ These funds are not included in the circulating supply to prevent staking for pa
 1.
 2.
 
+### Validators Incentives
+
+A total of 25% of the tokens, equating to 200 million EVIRE tokens, will be distributed as incentives to validators and delegators over the first 4 years of the mainnet. This incentivization ensures network security and recruiting by encouraging validator participation and preventing fraudulent activities like double-spending. Validators also earn transaction fees (gas) from transaction creators, providing a sustainable incentive model. After five years, validators receive only block rewards.
+
+
 ### Block Rewards
 
-A total of 25% of the tokens, equating to 200 million EVIRE tokens, will be distributed as block rewards to validators and delegators over the first 4 years of the mainnet. This incentivization ensures network security by encouraging validator participation and preventing fraudulent activities like double-spending. Validators also earn transaction fees (gas) from transaction creators, providing a sustainable incentive model. After five years, it is anticipated that transaction fees will be sufficient to reward validators without needing to mint additional block rewards.
+Each block on the Evire blockchain rewards validators with 2 EVIRE tokens. Additionally, transaction fees collected from network activities are distributed to validators after deducting a portion that is burned. This mechanism helps to control the token supply and incentivize network participation.
