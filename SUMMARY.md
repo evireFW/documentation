@@ -11,7 +11,7 @@
 * [▪️ Finances](introduction/finances.md)
 * [▪️ Licensing](introduction/licensing.md)
 * [▪️ Team](introduction/team.md)
-* [▪️ Tokenomics](introduction/tokenomics/README.md)
+* [▪️ Tokenomics](introduction/tokenomics.md)
   * [EVIRE ERC20 token](introduction/tokenomics/evire-erc20-token.md)
 * [▪️ Audit](introduction/audit.md)
 

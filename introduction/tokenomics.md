@@ -2,7 +2,7 @@
 
 ### Token Types and Utilities
 
-Evire offers two types of tokens: the ERC20 EVIRE token on Ethereum and the native EVIRE token on the Evire mainnet. The ERC20 EVIRE token acts as an IOU token on Ethereum.&#x20;
+Evire offers two types of tokens: the ERC20 EVIRE token on Ethereum and the native EVIRE token on the Evire mainnet. The ERC20 EVIRE token acts as an IOU token on Ethereum and has been deployed at the following address: [0x7ceEc758dfe5EF8C32cDe7b2259CC79B1891E8ED](https://etherscan.io/address/0x7ceEc758dfe5EF8C32cDe7b2259CC79B1891E8ED#code).
 
 Token holders can swap their ERC20 tokens for native EVIRE tokens after the mainnet launch. This ERC20 token can be freely traded on popular decentralized exchanges (DEXs) and centralized exchanges (CEXs), providing liquidity and helping to bootstrap users from the Ethereum community.
 
