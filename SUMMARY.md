@@ -105,7 +105,6 @@
 
 * [▪️ Partners](more/partners.md)
 * [▪️ Contribute](more/contribute.md)
-* [▪️ Audit](more/audit.md)
 
 ## Links
 
