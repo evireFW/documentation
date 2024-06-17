@@ -6,4 +6,4 @@ description: Official Evire Partners
 
 For partnership requests and business inquiries, please reach out to the Evire Team directly. \
 \
-Primary business contact: [info@evire.io](mailto:info@evire.io)
+Primary business contact: [business@evire.io](mailto:business@evire.io)
