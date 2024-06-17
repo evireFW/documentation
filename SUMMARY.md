@@ -13,6 +13,7 @@
 * [▪️ Team](introduction/team.md)
 * [▪️ Tokenomics](introduction/tokenomics.md)
   * [EVIRE ERC20 token](introduction/tokenomics/evire-erc20-token.md)
+  * [Vesting](introduction/tokenomics/vesting.md)
 * [▪️ Audit](introduction/audit.md)
 
 ## Core Concepts
