@@ -25,6 +25,7 @@ Token vesting for the Evire project pertains specifically to the EVIRE ERC20 tok
 
 * **Description**: 80 million tokens are dedicated to community initiatives and marketing efforts to expand the Evire user base and increase awareness.
 * **Vesting Schedule**: Vested over one year to ensure sustained marketing and community engagement.
+* Lock Transaction: [View on Etherscan](https://etherscan.io/tx/0x0af17b163c02406ec933352301a4d59baf547b46e34beb29bec7e3463c102f34)
 
 ### Validators Incentives (25%)
 
