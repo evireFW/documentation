@@ -103,6 +103,7 @@
 
 ## More
 
+* [▪️ Faucet](more/faucet.md)
 * [▪️ Partners](more/partners.md)
 * [▪️ Contribute](more/contribute.md)
 
