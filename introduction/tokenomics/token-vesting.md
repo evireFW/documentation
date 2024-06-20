@@ -4,7 +4,7 @@ Token vesting for the Evire project pertains specifically to the EVIRE ERC20 tok
 
 ## Token Allocation and Vesting Schedules
 
-### Fair Launch (45%)
+### Uniswap Launch (45%)
 
 * **Description**: To ensure a fair distribution without any pre-sales, 360 million tokens will be added to a liquidity pool on Uniswap.
 * **Vesting Schedule**: These tokens are available immediately at launch.
