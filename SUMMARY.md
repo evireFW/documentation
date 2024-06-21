@@ -22,6 +22,11 @@
 * [▪️ Ethereum Virtual Machine (EVM)](core-concepts/ethereum-virtual-machine-evm.md)
 * [▪️ Smart Contracts and Decentralized Applications](core-concepts/smart-contracts-and-decentralized-applications.md)
 
+## TESTNET
+
+* [Adding Evire Testnet to Metamask](testnet/adding-evire-testnet-to-metamask.md)
+* [Using the Evire Faucet](testnet/using-the-evire-faucet.md)
+
 ## FRAMEWORKS AND NATIVE FUNCTIONS
 
 * [▪️ Overview](frameworks-and-native-functions/overview.md)
@@ -117,8 +122,3 @@
 * [▪️ Linktree](https://linktr.ee/evireFW)
 * [◾ DeBank](https://debank.com/official/116505)
 * [▪️ TaskOn](https://taskon.evire.io)
-
-## TESTNET
-
-* [Adding Evire Testnet to Metamask](testnet/adding-evire-testnet-to-metamask.md)
-* [Using the Evire Faucet](testnet/using-the-evire-faucet.md)
