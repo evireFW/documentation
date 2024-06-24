@@ -34,12 +34,28 @@ library InfrastructureManagement {
         bool active;
     }
 
+    struct EventRecord {
+        uint256 assetId;
+        uint256 timestamp;
+        string eventType;
+        string data;
+    }
+
+    struct UserAuthorization {
+        address user;
+        bool authorized;
+    }
+
     event AssetCreated(uint256 assetId, string name, address owner);
     event AssetUpdated(uint256 assetId, string name, address owner, bool active);
+    event AssetTransferred(uint256 assetId, address from, address to);
     event MaintenanceScheduled(uint256 assetId, uint256 maintenanceDate, string description, address performedBy);
     event MaintenanceCompleted(uint256 assetId, uint256 maintenanceDate, address performedBy);
     event ResourceAllocated(uint256 assetId, uint256 resourceId, uint256 quantity, uint256 allocatedAt);
     event ResourceDeallocated(uint256 assetId, uint256 resourceId, uint256 quantity, uint256 deallocatedAt);
+    event EventRecorded(uint256 assetId, uint256 timestamp, string eventType, string data);
+    event UserAuthorized(address user);
+    event UserRevoked(address user);
 
     function createAsset(mapping(uint256 => Asset) storage assets, uint256 assetId, string memory name, address owner) public {
         require(assets[assetId].id == 0, "Asset already exists");
@@ -66,6 +82,18 @@ library InfrastructureManagement {
         asset.active = active;
 
         emit AssetUpdated(assetId, name, owner, active);
+    }
+
+    function transferAsset(mapping(uint256 => Asset) storage assets, uint256 assetId, address newOwner) public {
+        require(assets[assetId].id != 0, "Asset does not exist");
+        require(newOwner != address(0), "New owner is the zero address");
+
+        Asset storage asset = assets[assetId];
+        address previousOwner = asset.owner;
+        asset.owner = newOwner;
+        asset.updatedAt = block.timestamp;
+
+        emit AssetTransferred(assetId, previousOwner, newOwner);
     }
 
     function scheduleMaintenance(mapping(uint256 => MaintenanceRecord[]) storage maintenanceRecords, uint256 assetId, uint256 maintenanceDate, string memory description, address performedBy) public {
@@ -113,7 +141,42 @@ library InfrastructureManagement {
             }
         }
     }
+
+    function recordEvent(mapping(uint256 => EventRecord[]) storage eventRecords, uint256 assetId, string memory eventType, string memory data) public {
+        eventRecords[assetId].push(EventRecord({
+            assetId: assetId,
+            timestamp: block.timestamp,
+            eventType: eventType,
+            data: data
+        }));
+
+        emit EventRecorded(assetId, block.timestamp, eventType, data);
+    }
+
+    function authorizeUser(mapping(address => UserAuthorization) storage userAuthorizations, address user) public {
+        require(!userAuthorizations[user].authorized, "User already authorized");
+
+        userAuthorizations[user] = UserAuthorization({
+            user: user,
+            authorized: true
+        });
+
+        emit UserAuthorized(user);
+    }
+
+    function revokeUser(mapping(address => UserAuthorization) storage userAuthorizations, address user) public {
+        require(userAuthorizations[user].authorized, "User not authorized");
+
+        userAuthorizations[user].authorized = false;
+
+        emit UserRevoked(user);
+    }
+
+    function isUserAuthorized(mapping(address => UserAuthorization) storage userAuthorizations, address user) public view returns (bool) {
+        return userAuthorizations[user].authorized;
+    }
 }
+
 ```
 
 #### Explanation:
@@ -140,10 +203,14 @@ contract PhysicalInfrastructureManager {
     using InfrastructureManagement for mapping(uint256 => InfrastructureManagement.Asset);
     using InfrastructureManagement for mapping(uint256 => InfrastructureManagement.MaintenanceRecord[]);
     using InfrastructureManagement for mapping(uint256 => InfrastructureManagement.ResourceAllocation[]);
+    using InfrastructureManagement for mapping(uint256 => InfrastructureManagement.EventRecord[]);
+    using InfrastructureManagement for mapping(address => InfrastructureManagement.UserAuthorization);
 
     mapping(uint256 => InfrastructureManagement.Asset) private assets;
     mapping(uint256 => InfrastructureManagement.MaintenanceRecord[]) private maintenanceRecords;
     mapping(uint256 => InfrastructureManagement.ResourceAllocation[]) private resourceAllocations;
+    mapping(uint256 => InfrastructureManagement.EventRecord[]) private eventRecords;
+    mapping(address => InfrastructureManagement.UserAuthorization) private userAuthorizations;
 
     address public admin;
 
@@ -151,10 +218,12 @@ contract PhysicalInfrastructureManager {
     event UnauthorizedAccess(address indexed caller);
 
     modifier onlyAdmin() {
-        if (msg.sender != admin) {
-            emit UnauthorizedAccess(msg.sender);
-            revert("Caller is not the admin");
-        }
+        require(msg.sender == admin, "Caller is not the admin");
+        _;
+    }
+
+    modifier onlyAuthorized() {
+        require(userAuthorizations[msg.sender].authorized || msg.sender == admin, "Caller is not authorized");
         _;
     }
 
@@ -169,23 +238,35 @@ contract PhysicalInfrastructureManager {
         admin = newAdmin;
     }
 
-    function createAsset(uint256 assetId, string memory name, address owner) public onlyAdmin {
+    function authorizeUser(address user) public onlyAdmin {
+        userAuthorizations.authorizeUser(user);
+    }
+
+    function revokeUser(address user) public onlyAdmin {
+        userAuthorizations.revokeUser(user);
+    }
+
+    function createAsset(uint256 assetId, string memory name, address owner) public onlyAuthorized {
         assets.createAsset(assetId, name, owner);
     }
 
-    function updateAsset(uint256 assetId, string memory name, address owner, bool active) public onlyAdmin {
+    function updateAsset(uint256 assetId, string memory name, address owner, bool active) public onlyAuthorized {
         assets.updateAsset(assetId, name, owner, active);
+    }
+
+    function transferAsset(uint256 assetId, address newOwner) public onlyAuthorized {
+        assets.transferAsset(assetId, newOwner);
     }
 
     function getAsset(uint256 assetId) public view returns (InfrastructureManagement.Asset memory) {
         return assets[assetId];
     }
 
-    function scheduleMaintenance(uint256 assetId, uint256 maintenanceDate, string memory description, address performedBy) public onlyAdmin {
+    function scheduleMaintenance(uint256 assetId, uint256 maintenanceDate, string memory description, address performedBy) public onlyAuthorized {
         maintenanceRecords.scheduleMaintenance(assetId, maintenanceDate, description, performedBy);
     }
 
-    function completeMaintenance(uint256 assetId, uint256 maintenanceDate, address performedBy) public onlyAdmin {
+    function completeMaintenance(uint256 assetId, uint256 maintenanceDate, address performedBy) public onlyAuthorized {
         maintenanceRecords.completeMaintenance(assetId, maintenanceDate, performedBy);
     }
 
@@ -193,16 +274,24 @@ contract PhysicalInfrastructureManager {
         return maintenanceRecords[assetId];
     }
 
-    function allocateResource(uint256 assetId, uint256 resourceId, uint256 quantity) public onlyAdmin {
+    function allocateResource(uint256 assetId, uint256 resourceId, uint256 quantity) public onlyAuthorized {
         resourceAllocations.allocateResource(assetId, resourceId, quantity);
     }
 
-    function deallocateResource(uint256 assetId, uint256 resourceId, uint256 quantity) public onlyAdmin {
+    function deallocateResource(uint256 assetId, uint256 resourceId, uint256 quantity) public onlyAuthorized {
         resourceAllocations.deallocateResource(assetId, resourceId, quantity);
     }
 
     function getResourceAllocations(uint256 assetId) public view returns (InfrastructureManagement.ResourceAllocation[] memory) {
         return resourceAllocations[assetId];
+    }
+
+    function recordEvent(uint256 assetId, string memory eventType, string memory data) public onlyAuthorized {
+        eventRecords.recordEvent(assetId, eventType, data);
+    }
+
+    function getEventRecords(uint256 assetId) public view returns (InfrastructureManagement.EventRecord[] memory) {
+        return eventRecords[assetId];
     }
 
     function getAssetsByOwner(address owner) public view returns (InfrastructureManagement.Asset[] memory) {
@@ -245,17 +334,19 @@ contract PhysicalInfrastructureManager {
         return result;
     }
 }
+
 ```
 
 #### Explanation:
 
-* The `InfrastructureManagement` library is imported and used within the contract to handle asset management, maintenance tracking, and resource allocation.
-* The contract includes an `admin` address with functions restricted to the admin using the `onlyAdmin` modifier.
-* An `UnauthorizedAccess` event is emitted if a non-admin attempts to perform restricted actions.
-* Functions for creating, updating assets, scheduling, and completing maintenance, as well as allocating and deallocating resources, are restricted to the admin.
-* Functions for retrieving assets, maintenance records, and resource allocations are available to all users.
-* Additional helper functions allow users to fetch assets by owner and list active assets.
-* Detailed events are emitted for administrative changes and unauthorized access attempts.
+* The `InfrastructureManagement` library is imported and utilized within the contract to manage assets, track maintenance, allocate resources, and handle event logging.
+* The contract defines an admin address and restricts certain functions to the admin using the `onlyAdmin` modifier. Additionally, it introduces an `onlyAuthorized` modifier, allowing both the admin and authorized users to perform restricted actions.
+*   An `UnauthorizedAccess` event is emitted if a non-admin attempts to perform restricted actions, ensuring transparency and security.
+
+    Functions for creating and updating assets, scheduling and completing maintenance, as well as allocating and deallocating resources, are restricted to the admin or authorized users.
+* Functions for retrieving assets, maintenance records, and resource allocations are available to all users, promoting transparency and accessibility.
+* Additional helper functions enable users to fetch assets by owner and list active assets, providing convenient access to relevant data.
+* Detailed events are emitted for administrative changes, asset transfers, maintenance activities, resource allocations, and unauthorized access attempts, enhancing traceability and auditing.
 * Proper error handling is implemented using `revert` to ensure the contract behaves correctly in case of unauthorized access or invalid operations.
 
-This smart contract demonstrates a secure approach to managing physical infrastructure assets on the blockchain, leveraging the reusable components provided by the `InfrastructureManagement` library.
+This smart contract demonstrates a secure and comprehensive approach to managing physical infrastructure assets on the blockchain, leveraging the reusable and extensible components provided by the `InfrastructureManagement` library.
