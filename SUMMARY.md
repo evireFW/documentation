@@ -4,13 +4,11 @@
 
 ## INTRODUCTION
 
-* [▪️ Overview](introduction/overview.md)
 * [▪️ Key Features and Capabilities](introduction/key-features-and-capabilities.md)
 * [▪️ High-Level Architecture](introduction/high-level-architecture.md)
 * [▪️ Roadmap](introduction/roadmap.md)
 * [▪️ Finances](introduction/finances.md)
 * [▪️ Licensing](introduction/licensing.md)
-* [▪️ Team](introduction/team.md)
 * [▪️ Tokenomics](introduction/tokenomics.md)
   * [EVIRE ERC20 token](introduction/tokenomics/evire-erc20-token.md)
   * [Token Vesting](introduction/tokenomics/token-vesting.md)
@@ -115,10 +113,9 @@
 ## Links
 
 * [▪️ Website](https://evire.io)
-* [▪️ Twitter](https://x.com/\_evire)
+* [▪️ Twitter](https://x.com/_evire)
 * [▪️ Telegram](https://t.me/evireFW)
 * [▪️ GitHub](https://github.com/evireFW)
 * [▪️ Medium](https://evirefw.medium.com)
 * [▪️ Linktree](https://linktr.ee/evireFW)
 * [◾ DeBank](https://debank.com/official/116505)
-* [▪️ TaskOn](https://taskon.evire.io)
